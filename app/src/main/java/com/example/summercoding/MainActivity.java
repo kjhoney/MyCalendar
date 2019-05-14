@@ -1,18 +1,27 @@
 package com.example.summercoding;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar tb = (Toolbar) findViewById(R.id.app_toolbar) ;
+        tb.setTitle("");
+        setSupportActionBar(tb);
 
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setText("Monthly"));
@@ -43,5 +52,27 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu) ;
+        return true ;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_add :
+                intent = new Intent(MainActivity.this,AddSchedule.class);
+                startActivity(intent);
+                return true ;
+            case R.id.action_settings :
+                intent = new Intent(MainActivity.this,AddSchedule.class);
+                startActivity(intent);
+                return true ;
+            default :
+                return super.onOptionsItemSelected(item) ;
+        }
     }
 }
