@@ -53,18 +53,20 @@ public class DbOpenHelper {
     }
 
     // Insert DB
-    public long insertColumn(String title, String date){
+    public long insertColumn(String title, String date, String content){
         ContentValues values = new ContentValues();
         values.put(DataBases.CreateDB.TITLE, title);
         values.put(DataBases.CreateDB.DATE, date);
+        values.put(DataBases.CreateDB.CONTENT, content);
         return mDB.insert(DataBases.CreateDB._TABLENAME0, null, values);
     }
 
     // Update DB
-    public boolean updateColumn(long id, String title, String date){
+    public boolean updateColumn(long id, String title, String date, String content){
         ContentValues values = new ContentValues();
         values.put(DataBases.CreateDB.TITLE, title);
         values.put(DataBases.CreateDB.DATE, date);
+        values.put(DataBases.CreateDB.CONTENT, content);
         return mDB.update(DataBases.CreateDB._TABLENAME0, values, "_id=" + id, null) > 0;
     }
 
