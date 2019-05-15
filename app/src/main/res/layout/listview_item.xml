@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:weightSum="2"
+    android:background="@color/colorPrimary">
+    <TextView
+        android:id="@+id/item_text_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="할 일"
+        android:textSize="15dp"
+        android:textColor="#FFFFFF"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"/>
+    <TextView
+        android:id="@+id/item_text_memo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="내 용"
+        android:textSize="13dp"
+        android:textColor="#BBBBBB"
+        android:gravity="top"
+        android:paddingLeft="10dp"/>
+</LinearLayout>

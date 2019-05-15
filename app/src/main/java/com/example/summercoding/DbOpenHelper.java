@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 public class DbOpenHelper {
 
     private static final String DATABASE_NAME = "InnerDatabase(SQLite).db";
@@ -80,8 +82,21 @@ public class DbOpenHelper {
         return mDB.delete(DataBases.CreateDB._TABLENAME0, "_id="+id, null) > 0;
     }
     // Select DB
-    public Cursor selectColumns(){
-        return mDB.query(DataBases.CreateDB._TABLENAME0, null, null, null, null, null, null);
+    public ArrayList<ItemData> selectColumns(String date) {
+        String sql = "select * from " + DataBases.CreateDB._TABLENAME0 + " where DATE = '" + date + "';";
+        Cursor results = mDB.rawQuery(sql, null);
+
+        results.moveToFirst();
+        ArrayList<ItemData> data = new ArrayList<>();
+
+        while (!results.isAfterLast()) {
+            ItemData item = new ItemData(results.getInt(0), results.getString(1),
+                    results.getString(2), results.getString(3));
+            data.add(item);
+            results.moveToNext();
+        }
+        results.close();
+        return data;
     }
 
     // sort by column

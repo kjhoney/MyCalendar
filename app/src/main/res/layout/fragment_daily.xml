@@ -4,12 +4,38 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:weightSum="6">
+        <Button
+            android:id="@+id/move_left_day"
+            android:background="@android:color/transparent"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="왼쪽"/>
+        <TextView
+            android:id="@+id/text_daily"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="4"/>
+        <Button
+            android:id="@+id/move_right_day"
+            android:background="@android:color/transparent"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:text="오른쪽"/>
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Daily"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+    <ListView
+            android:id="@+id/daily_schedule_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    </ListView>
 
 </LinearLayout>

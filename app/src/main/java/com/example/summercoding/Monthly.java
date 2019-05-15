@@ -35,8 +35,6 @@ public class Monthly extends Fragment {
                 new SaturdayDecorator(),
                 new OnedayDecorator());
 
-
-
         return view;
     }
 }

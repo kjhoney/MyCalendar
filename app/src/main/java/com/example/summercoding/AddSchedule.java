@@ -2,10 +2,8 @@ package com.example.summercoding;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -52,7 +50,7 @@ public class AddSchedule extends AppCompatActivity implements View.OnClickListen
         String todayInStr = new SimpleDateFormat(mDateFormat).format(today);
         edit_date.setText(todayInStr);
 
-        dialog = new DatePickerDialog(this, listener, today.getYear() + 1900, today.getMonth(), today.getDate());
+        dialog = new DatePickerDialog(this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, listener, today.getYear() + 1900, today.getMonth(), today.getDate());
     }
 
     @Override
@@ -63,6 +61,8 @@ public class AddSchedule extends AppCompatActivity implements View.OnClickListen
                 dialog.getDatePicker().setMinDate(minDate.getTime().getTime());
                 maxDate.set(2030,11,31);
                 dialog.getDatePicker().setMaxDate(maxDate.getTimeInMillis());
+                dialog.getDatePicker().setCalendarViewShown(false);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 dialog.show();
                 break;
             case R.id.register:
@@ -91,7 +91,7 @@ public class AddSchedule extends AppCompatActivity implements View.OnClickListen
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
             monthOfYear++;
-            String SelectedDate = year+"-"+monthOfYear+"-"+dayOfMonth;
+            String SelectedDate = String.format("%04d",year)+"-"+String.format("%02d",monthOfYear)+"-"+String.format("%02d",dayOfMonth);
             edit_date.setText(SelectedDate);
         }
     };

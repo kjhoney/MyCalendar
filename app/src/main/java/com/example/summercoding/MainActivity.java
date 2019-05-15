@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(MainActivity.this,AddSchedule.class);
                 startActivity(intent);
                 return true ;
-            case R.id.action_settings :
+            case R.id.action_today :
                 intent = new Intent(MainActivity.this,AddSchedule.class);
                 startActivity(intent);
                 return true ;
