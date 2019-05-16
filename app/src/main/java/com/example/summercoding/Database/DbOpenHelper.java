@@ -1,4 +1,4 @@
-package com.example.summercoding;
+package com.example.summercoding.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,6 +7,8 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.summercoding.ItemData;
 
 import java.util.ArrayList;
 
@@ -84,6 +86,23 @@ public class DbOpenHelper {
     // Select DB
     public ArrayList<ItemData> selectColumns(String date) {
         String sql = "select * from " + DataBases.CreateDB._TABLENAME0 + " where DATE = '" + date + "';";
+        Cursor results = mDB.rawQuery(sql, null);
+
+        results.moveToFirst();
+        ArrayList<ItemData> data = new ArrayList<>();
+
+        while (!results.isAfterLast()) {
+            ItemData item = new ItemData(results.getInt(0), results.getString(1),
+                    results.getString(2), results.getString(3));
+            data.add(item);
+            results.moveToNext();
+        }
+        results.close();
+        return data;
+    }
+
+    public ArrayList<ItemData> selectAll() {
+        String sql = "select * from " + DataBases.CreateDB._TABLENAME0 + ";";
         Cursor results = mDB.rawQuery(sql, null);
 
         results.moveToFirst();

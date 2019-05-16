@@ -1,4 +1,4 @@
-package com.example.summercoding;
+package com.example.summercoding.Database;
 
 import android.provider.BaseColumns;
 

@@ -4,11 +4,14 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.summercoding.Database.DbOpenHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,6 +34,10 @@ public class AddSchedule extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_schedule);
+
+        Toolbar tb = (Toolbar) findViewById(R.id.add_toolbar);
+        setSupportActionBar(tb);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         edit_title = (TextView)findViewById(R.id.edit_title);
         edit_date = (Button)findViewById(R.id.edit_date);

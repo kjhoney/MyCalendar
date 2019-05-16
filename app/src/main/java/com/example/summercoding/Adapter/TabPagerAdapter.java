@@ -1,12 +1,15 @@
-package com.example.summercoding;
+package com.example.summercoding.Adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.example.summercoding.Fragment.Daily;
+import com.example.summercoding.Fragment.Monthly;
+import com.example.summercoding.Fragment.Weekly;
+
 public class TabPagerAdapter extends FragmentStatePagerAdapter {
 
-    // Count number of tabs
     private int tabCount;
 
     public TabPagerAdapter(FragmentManager fm, int tabCount) {
@@ -17,7 +20,6 @@ public class TabPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        // Returning the current tabs
         switch (position) {
             case 0:
                 Monthly tabFragment1 = new Monthly();

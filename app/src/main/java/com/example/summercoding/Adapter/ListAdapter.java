@@ -1,4 +1,4 @@
-package com.example.summercoding;
+package com.example.summercoding.Adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.example.summercoding.ItemData;
+import com.example.summercoding.R;
 
 import java.util.ArrayList;
 
